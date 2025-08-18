@@ -26,7 +26,7 @@ This project is a work in progress (WIP). The savings feature is under developme
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-username/my-finance-app.git
+   git clone https://github.com/Zmax-17/budget-allright
    ```
 2. Install dependencies
    npm install
