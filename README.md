@@ -1,12 +1,38 @@
-# React + Vite
+# Budget-allright
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A personal finance tracking application built with **React**, **Vite**, and **Supabase**. This app allows users to manage transactions, view dashboards, and track savings (feature in development).
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- User authentication (login/signup)
+- Transaction management (add, edit, delete)
+- Dashboard with balance and spending charts
+- Category details with subcategories
+- Dark/light theme toggle
+- Responsive design
 
-## Expanding the ESLint configuration
+## Tech Stack
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- **Frontend**: React, Vite, Tailwind CSS
+- **Backend**: Supabase (authentication, database)
+- **State Management**: React Context
+- **Data Fetching**: React Query
+
+## Status
+
+This project is a work in progress (WIP). The savings feature is under development, and more enhancements are planned.
+
+## Installation
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/your-username/my-finance-app.git
+   ```
+2. Install dependencies
+   npm install
+3. Set up environment variables (.env):
+   VITE_SUPABASE_URL=your-supabase-url
+   VITE_SUPABASE_ANON_KEY=your-supabase-anon-key
+4. Run the app:
+   bash
+   npm run dev
