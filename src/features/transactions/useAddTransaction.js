@@ -22,10 +22,10 @@ export function useAddTransaction() {
 
       return { previousTransactions };
     },
-    onSuccess: (data) => {
+    onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["transactions", user?.id] });
       toast.success("Transaction created successfully");
-      console.log("Create success:", data);
+
     },
     onError: (err, variables, context) => {
       if (context?.previousTransactions) {

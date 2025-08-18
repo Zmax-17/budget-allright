@@ -15,7 +15,7 @@ export function useDelTransaction() {
       await queryClient.cancelQueries({ queryKey: ["transactions", user?.id] });
 
       const previousTransactions = queryClient.getQueryData(["transactions", user?.id]) || { data: [] };
-      console.log("Previous cache:", previousTransactions);
+
 
       queryClient.setQueryData(["transactions", user?.id], (old) => {
         if (!old?.data) return { data: [] };

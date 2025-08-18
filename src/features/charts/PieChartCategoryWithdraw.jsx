@@ -8,7 +8,6 @@ import {
 } from "recharts";
 
 function PieChartCategoryWithdraw({ data }) {
-  console.log("PieChart", data);
   const sortedData = [...data].sort(
     (a, b) => b.value - a.value
   );

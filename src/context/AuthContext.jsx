@@ -19,7 +19,7 @@ export function AuthProvider({ children }) {
         const {
           data: { session },
         } = await supabase.auth.getSession();
-        console.log("Initial session:", session?.user);
+
         setUser(session?.user ?? null);
       } catch (error) {
         console.error("Error fetching session:", error);
@@ -33,7 +33,6 @@ export function AuthProvider({ children }) {
     // Subscribe to state changes
     const { data: listener } =
       supabase.auth.onAuthStateChange((_event, session) => {
-        console.log("Auth state changed:", session?.user);
         setUser(session?.user ?? null);
       });
 
@@ -67,7 +66,6 @@ export function AuthProvider({ children }) {
       await supabase.auth.signOut();
       localStorage.removeItem("supabase.auth.token");
       setUser(null);
-      console.log("Logged out successfully");
     } catch (error) {
       console.error("Logout error:", error.message);
     }

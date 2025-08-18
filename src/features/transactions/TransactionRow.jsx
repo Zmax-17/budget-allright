@@ -23,7 +23,6 @@ function TransactionRow({ transaction }) {
 
   const onEditClick = (transaction) => {
     openModal("edit-transaction", transaction);
-    console.log("edit modal open");
   };
   const handleDelete = () => {
     delTransaction(transaction.id); // pass the transaction id

@@ -10,7 +10,7 @@ import {
 } from "recharts";
 
 function LineChartBlock({ data }) {
-  console.log("LineChart", data); //  { date: "2025-06-01", income: 0, withdraw: 1000 },
+  //  { date: "2025-06-01", income: 0, withdraw: 1000 },
 
   return (
     <div>

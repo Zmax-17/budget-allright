@@ -12,7 +12,6 @@ function BalanceCard({
   withdraw,
   selectedMonth,
 }) {
-  console.log(selectedMonth);
   const formattedMonth = format(
     new Date(selectedMonth),
     "MMMM"
