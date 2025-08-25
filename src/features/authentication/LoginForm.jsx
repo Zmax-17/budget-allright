@@ -115,9 +115,11 @@ function Login() {
           >
             Login as demo user
           </button>
-          <p>newtest@test.com test1234</p>
           <p className="mt-1 text-xs text-gray-500">
-            demo@budgetallright.com / demo123
+            newtest@test.com test1234
+          </p>
+          <p className="mt-1 text-xs text-gray-500">
+            demo@budgetallright.com demo1234
           </p>
         </div>
       </form>
