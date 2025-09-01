@@ -9,13 +9,13 @@ export async function insertDemoTransactions() {
 
   if (!user) throw new toast.error("❌ User not logged in");
   if (authError) throw new toast.error("❌ Auth error: " + authError.message);
-  // Removing the announcement of demo transactions for April-August 2025
+  // Removing the announcement of demo transactions for April-September 2025
   const { error: deleteError } = await supabase
     .from("transactions")
     .delete()
     .match({ user_id: user.id }) // To remove all demo data, comment out the lines below gte, lte
     .gte("date", "2025-04-01")
-    .lte("date", "2025-08-31");
+    .lte("date", "2025-09-30");
 
   if (deleteError) {
     console.error("❌ Delete error:", deleteError.message);
