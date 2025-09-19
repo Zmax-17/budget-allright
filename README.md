@@ -103,6 +103,6 @@ git clone https://github.com/Zmax-17/budget-allright
 To quickly try out the app without signing up, use the demo account:
 
 **Email:** `demo@budgetallright.com`  
-**Password:** `demo123`
+**Password:** `demo1234`
 
 Demo data uploading is also available in the app settings.
