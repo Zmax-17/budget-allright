@@ -9,13 +9,13 @@ export async function insertDemoTransactions() {
 
   if (!user) throw new toast.error("❌ User not logged in");
   if (authError) throw new toast.error("❌ Auth error: " + authError.message);
-  // Removing the announcement of demo transactions for April-September 2025
+  // Removing the announcement of demo transactions for April-Oktober 2025
   const { error: deleteError } = await supabase
     .from("transactions")
     .delete()
     .match({ user_id: user.id }) // To remove all demo data, comment out the lines below gte, lte
     .gte("date", "2025-04-01")
-    .lte("date", "2025-09-30");
+    .lte("date", "2025-10-31");
 
   if (deleteError) {
     console.error("❌ Delete error:", deleteError.message);
@@ -542,6 +542,7 @@ export async function insertDemoTransactions() {
       sub_category: "Training and education",
       date: "2025-08-25",
     },
+    // September
     {
       description: "Salary September",
       amount: 25000,
@@ -677,6 +678,119 @@ export async function insertDemoTransactions() {
       main_category: "Income",
       sub_category: "Dividends",
       date: "2025-09-28",
+    },
+    // 🌰 October
+    {
+      description: "Salary October",
+      amount: 25000,
+      type: "income",
+      main_category: "Income",
+      sub_category: "Wages",
+      date: "2025-10-01",
+    },
+    {
+      description: "Rent October",
+      amount: 11000,
+      type: "withdraw",
+      main_category: "Fixed living expenses",
+      sub_category: "Mortgage",
+      date: "2025-10-03",
+    },
+    {
+      description: "Groceries",
+      amount: 2400,
+      type: "withdraw",
+      main_category: "Groceries",
+      sub_category: "Supermarket",
+      date: "2025-10-05",
+    },
+    {
+      description: "Electricity bill",
+      amount: 590,
+      type: "withdraw",
+      main_category: "Fixed living expenses",
+      sub_category: "Electricity",
+      date: "2025-10-07",
+    },
+    {
+      description: "Taxi ride",
+      amount: 400,
+      type: "withdraw",
+      main_category: "Transportation and vehicles",
+      sub_category: "Taxi",
+      date: "2025-10-10",
+    },
+    {
+      description: "Cinema tickets",
+      amount: 450,
+      type: "withdraw",
+      main_category: "Media and entertainment",
+      sub_category: "Movie Theater",
+      date: "2025-10-12",
+    },
+    {
+      description: "Coffee and snacks",
+      amount: 380,
+      type: "withdraw",
+      main_category: "Cafe and restaurant",
+      sub_category: "Cafe",
+      date: "2025-10-14",
+    },
+    {
+      description: "Children's clothing",
+      amount: 1000,
+      type: "withdraw",
+      main_category: "Children",
+      sub_category: "Clothes",
+      date: "2025-10-16",
+    },
+    {
+      description: "Car maintenance",
+      amount: 2200,
+      type: "withdraw",
+      main_category: "Transportation and vehicles",
+      sub_category: "Car maintenance",
+      date: "2025-10-18",
+    },
+    {
+      description: "Pet supplies",
+      amount: 850,
+      type: "withdraw",
+      main_category: "Hobby and leisure",
+      sub_category: "Pets",
+      date: "2025-10-20",
+    },
+    {
+      description: "Home repair tools",
+      amount: 950,
+      type: "withdraw",
+      main_category: "Home and garden",
+      sub_category: "Tools",
+      date: "2025-10-22",
+    },
+    {
+      description: "Fuel",
+      amount: 1500,
+      type: "withdraw",
+      main_category: "Transportation and vehicles",
+      sub_category: "Fuel and charging",
+      date: "2025-10-25",
+    },
+    {
+      description: "Beauty salon visit",
+      amount: 1200,
+      type: "withdraw",
+      main_category: "Health and wellbeing",
+      sub_category: "Beauty",
+      date: "2025-10-28",
+    },
+    {
+      description: "Interest from savings",
+      amount: 350,
+      type: "income",
+      main_category: "Income",
+      sub_category: "Dividends",
+      date: "2025-10-30",
     },
 
   ].map((t) => ({ ...t, user_id: user.id }));
