@@ -9,13 +9,13 @@ export async function insertDemoTransactions() {
 
   if (!user) throw new toast.error("❌ User not logged in");
   if (authError) throw new toast.error("❌ Auth error: " + authError.message);
-  // Removing the announcement of demo transactions for April-Oktober 2025
+  // Removing the announcement of demo transactions for April-November 2025
   const { error: deleteError } = await supabase
     .from("transactions")
     .delete()
     .match({ user_id: user.id }) // To remove all demo data, comment out the lines below gte, lte
     .gte("date", "2025-04-01")
-    .lte("date", "2025-10-31");
+    .lte("date", "2025-11-30");
 
   if (deleteError) {
     console.error("❌ Delete error:", deleteError.message);
@@ -792,7 +792,127 @@ export async function insertDemoTransactions() {
       sub_category: "Dividends",
       date: "2025-10-30",
     },
-
+    // 🍂 November
+    {
+      description: "Salary November",
+      amount: 25000,
+      type: "income",
+      main_category: "Income",
+      sub_category: "Wages",
+      date: "2025-11-01",
+    },
+    {
+      description: "Rent November",
+      amount: 11000,
+      type: "withdraw",
+      main_category: "Fixed living expenses",
+      sub_category: "Mortgage",
+      date: "2025-11-03",
+    },
+    {
+      description: "Groceries",
+      amount: 2500,
+      type: "withdraw",
+      main_category: "Groceries",
+      sub_category: "Supermarket",
+      date: "2025-11-05",
+    },
+    {
+      description: "Electricity bill",
+      amount: 600,
+      type: "withdraw",
+      main_category: "Fixed living expenses",
+      sub_category: "Electricity",
+      date: "2025-11-07",
+    },
+    {
+      description: "Cinema tickets",
+      amount: 500,
+      type: "withdraw",
+      main_category: "Media and entertainment",
+      sub_category: "Movie Theater",
+      date: "2025-11-09",
+    },
+    {
+      description: "Taxi ride",
+      amount: 450,
+      type: "withdraw",
+      main_category: "Transportation and vehicles",
+      sub_category: "Taxi",
+      date: "2025-11-11",
+    },
+    {
+      description: "Gift for friend's birthday",
+      amount: 1500,
+      type: "withdraw",
+      main_category: "Gifts and donations",
+      sub_category: "Birthday gift",
+      date: "2025-11-13",
+    },
+    {
+      description: "Fuel",
+      amount: 1700,
+      type: "withdraw",
+      main_category: "Transportation and vehicles",
+      sub_category: "Fuel and charging",
+      date: "2025-11-15",
+    },
+    {
+      description: "Gym membership",
+      amount: 1200,
+      type: "withdraw",
+      main_category: "Health and wellbeing",
+      sub_category: "Wellbeing",
+      date: "2025-11-17",
+    },
+    {
+      description: "Monthly public transport card",
+      amount: 650,
+      type: "withdraw",
+      main_category: "Transportation and vehicles",
+      sub_category: "Public transport",
+      date: "2025-11-19",
+    },
+    {
+      description: "Online shopping (Clothes)",
+      amount: 2500,
+      type: "withdraw",
+      main_category: "Clothing and gear",
+      sub_category: "Clothing",
+      date: "2025-11-21",
+    },
+    {
+      description: "Lunch at restaurant",
+      amount: 700,
+      type: "withdraw",
+      main_category: "Cafe and restaurant",
+      sub_category: "Restaurant",
+      date: "2025-11-23",
+    },
+    {
+      description: "Family trip (Accommodation)",
+      amount: 7500,
+      type: "withdraw",
+      main_category: "Travel",
+      sub_category: "Accommodation",
+      date: "2025-11-25",
+    },
+    {
+      description: "Interest from savings",
+      amount: 380,
+      type: "income",
+      main_category: "Income",
+      sub_category: "Dividends",
+      date: "2025-11-28",
+    },
+    {
+      description: "Charity donation",
+      amount: 800,
+      type: "withdraw",
+      main_category: "Miscellaneous",
+      sub_category: "Charity",
+      date: "2025-11-29",
+    },
   ].map((t) => ({ ...t, user_id: user.id }));
 
   const { error } = await supabase.from("transactions").insert(demoData);
