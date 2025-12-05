@@ -9,13 +9,13 @@ export async function insertDemoTransactions() {
 
   if (!user) throw new toast.error("❌ User not logged in");
   if (authError) throw new toast.error("❌ Auth error: " + authError.message);
-  // Removing the announcement of demo transactions for April-November 2025
+  // Removing the announcement of demo transactions for April-December 2025
   const { error: deleteError } = await supabase
     .from("transactions")
     .delete()
     .match({ user_id: user.id }) // To remove all demo data, comment out the lines below gte, lte
     .gte("date", "2025-04-01")
-    .lte("date", "2025-11-30");
+    .lte("date", "2025-12-31");
 
   if (deleteError) {
     console.error("❌ Delete error:", deleteError.message);
@@ -912,6 +912,111 @@ export async function insertDemoTransactions() {
       main_category: "Miscellaneous",
       sub_category: "Charity",
       date: "2025-11-29",
+    },
+    // 🎄 December
+    {
+      description: "Salary December",
+      amount: 25000,
+      type: "income",
+      main_category: "Income",
+      sub_category: "Wages",
+      date: "2025-12-01",
+    },
+    {
+      description: "Rent December",
+      amount: 11000,
+      type: "withdraw",
+      main_category: "Fixed living expenses",
+      sub_category: "Mortgage",
+      date: "2025-12-03",
+    },
+    {
+      description: "Groceries",
+      amount: 2500,
+      type: "withdraw",
+      main_category: "Groceries",
+      sub_category: "Grocery store",
+      date: "2025-12-05",
+    },
+    {
+      description: "Christmas gifts",
+      amount: 5000,
+      type: "withdraw",
+      main_category: "Gifts and donations",
+      sub_category: "Christmas gifts",
+      date: "2025-12-08",
+    },
+    {
+      description: "Beauty salon visit",
+      amount: 1200,
+      type: "withdraw",
+      main_category: "Health and wellbeing",
+      sub_category: "Beauty",
+      date: "2025-12-10",
+    },
+    {
+      description: "Taxi ride",
+      amount: 350,
+      type: "withdraw",
+      main_category: "Transportation and vehicles",
+      sub_category: "Taxi",
+      date: "2025-12-12",
+    },
+    {
+      description: "Dinner at restaurant",
+      amount: 1000,
+      type: "withdraw",
+      main_category: "Cafe and restaurant",
+      sub_category: "Restaurant",
+      date: "2025-12-15",
+    },
+    {
+      description: "Fuel",
+      amount: 1500,
+      type: "withdraw",
+      main_category: "Transportation and vehicles",
+      sub_category: "Fuel and charging",
+      date: "2025-12-17",
+    },
+    {
+      description: "Streaming subscription",
+      amount: 150,
+      type: "withdraw",
+      main_category: "Media and entertainment",
+      sub_category: "Streaming services",
+      date: "2025-12-20",
+    },
+    {
+      description: "Electricity bill",
+      amount: 600,
+      type: "withdraw",
+      main_category: "Fixed living expenses",
+      sub_category: "Electricity",
+      date: "2025-12-22",
+    },
+    {
+      description: "Gym membership",
+      amount: 1200,
+      type: "withdraw",
+      main_category: "Health and wellbeing",
+      sub_category: "Wellbeing",
+      date: "2025-12-24",
+    },
+    {
+      description: "New Year's Eve party",
+      amount: 2000,
+      type: "withdraw",
+      main_category: "Hobby and leisure",
+      sub_category: "Events",
+      date: "2025-12-28",
+    },
+    {
+      description: "Interest from savings",
+      amount: 380,
+      type: "income",
+      main_category: "Income",
+      sub_category: "Dividends",
+      date: "2025-12-30",
     },
   ].map((t) => ({ ...t, user_id: user.id }));
 
